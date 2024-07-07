@@ -128,21 +128,26 @@ class HandleOverDrawn implements Exception {
 }
 
 void main(List<String> args) {
+  print("Task 1 :");
+  Book B = Book('The Great Gatsby', 'F. Scott Fitzgerald', 387);
+  B.Display();
+  print("Task 2 :");
   Novel N =
       Novel("The science of well-being", "Mohammed Ali", 574, "psychology");
   N.Display();
-
+  print("Task 3 :");
   Shape C = Circle(3);
   Shape R = Rectangle(4.5, 6);
   printArea(C); //for the circle
   printArea(R); //for the rectangle
-
+  print("Task 4 :");
   User user = User('Mohammed', 21, "0123456789");
   Product product = Product('Laptop', 1489.99);
 
   print('User JSON is ${user.JSON()}');
   print('Product JSON is ${product.JSON()}');
 
+  print("Task 5 :");
   var account = BankAccount(1000, 'John Doe');
   account.deposit(500);
   try {
