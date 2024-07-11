@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mohammedtask/Pages/Login.dart';
+import 'package:mohammedtask/Pages/auth_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,45 +11,37 @@ class WelcomePage extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/assets/background.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        decoration: const BoxDecoration(color: Color.fromARGB(255, 7, 2, 36)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
-            Image.asset('lib/assets/home_page.png'),
-            const Text(
-              "ITI Quiz App",
-              style: TextStyle(
-                  color: Colors.yellow,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 14,
+            const Spacer(),
+            Center(
+                child: Image.asset(
+              'lib/assets/quiz 1.png',
+              height: 100,
+            )),
+            const SizedBox(
+              height: 20,
             ),
             const Text(
-              "We Are Creative Enjoy Our App",
+              "Ready for some questions?!",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
+            const Spacer(),
             SizedBox(
-              height: 200,
-            ),
-            SizedBox(
+              height: 100,
               width: double.infinity,
               child: Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 0, 28, 80),
+                    ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
@@ -59,19 +52,19 @@ class WelcomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const LoginPage(),
+                        builder: (BuildContext context) => const AuthPage(),
                       ),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     "Start",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: Colors.white, fontSize: 25),
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

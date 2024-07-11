@@ -2,20 +2,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mohammedtask/Widgets/my_button.dart';
 
-class Login extends StatefulWidget {
+class Sign_Up extends StatefulWidget {
   final Function()? onTap;
-  Login({super.key, required this.onTap});
+  Sign_Up({super.key, required this.onTap});
   @override
-  _LoginState createState() => _LoginState();
+  _Sign_UpState createState() => _Sign_UpState();
 }
 
-class _LoginState extends State<Login> {
+class _Sign_UpState extends State<Sign_Up> {
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
+  FocusNode confirmPasswordFocusNode = FocusNode();
+
   @override
   void dispose() {
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
+    confirmPasswordFocusNode.dispose();
     super.dispose();
   }
 
@@ -23,7 +26,9 @@ class _LoginState extends State<Login> {
 
   final passwordController = TextEditingController();
 
-  void signUserIn() async {
+  final confirmpasController = TextEditingController();
+
+  void signUserUp() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -35,8 +40,26 @@ class _LoginState extends State<Login> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
+    /*
+    
+    if (email.isEmpty || !isValidEmail(email)) {
+      wrongEmail();
+      return;
+    }
+
+    if (password.isEmpty || password.length < 6) {
+      wrongPassword();
+      return;
+
+
+    }*/
+    if (passwordController.text != confirmpasController.text) {
+      Navigator.pop(context);
+      showError("Passwords do not match");
+      return;
+    }
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -47,10 +70,19 @@ class _LoginState extends State<Login> {
     }
   }
 
+  /*
+  
+  
   bool isValidEmail(String email) {
+    // Use a regular expression to validate email format
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     return emailRegex.hasMatch(email);
-  }
+
+
+
+
+
+  }*/
 
   void showError(String message) {
     showDialog(
@@ -93,7 +125,7 @@ class _LoginState extends State<Login> {
                 children: [
                   SizedBox(height: 260),
                   Text(
-                    'Login',
+                    'Register',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -104,11 +136,11 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      controller: emailController,
                       focusNode: emailFocusNode,
                       onTap: () {
                         setState(() {});
                       },
-                      controller: emailController,
                       decoration: InputDecoration(
                         hintText: 'Email',
                         prefixIcon: Icon(Icons.email, color: Colors.white),
@@ -133,11 +165,14 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      controller: passwordController,
                       focusNode: passwordFocusNode,
                       onTap: () {
-                        setState(() {});
+                        setState(() {
+                          FocusScope.of(context)
+                              .requestFocus(passwordFocusNode);
+                        });
                       },
-                      controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         hintText: 'Password',
@@ -159,34 +194,50 @@ class _LoginState extends State<Login> {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          'Forgot?',
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: confirmpasController,
+                      focusNode: confirmPasswordFocusNode,
+                      onTap: () {
+                        setState(() {
+                          FocusScope.of(context)
+                              .requestFocus(confirmPasswordFocusNode);
+                        });
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Confirm Password',
+                        prefixIcon: Icon(Icons.lock, color: Colors.white),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: confirmPasswordFocusNode.hasFocus
+                                ? const Color.fromARGB(255, 1, 53, 96)
+                                : Colors.white,
                           ),
                         ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 0, 75, 136)),
+                        ),
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 174, 176, 192)),
                       ),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   MyButton(
-                    text: "Log In",
-                    onTap: signUserIn,
+                    text: "Sign Up",
+                    onTap: signUserUp,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 18),
                   Text(
                     'Or continue with',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14,
+                      fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 18),
@@ -211,12 +262,12 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 22),
+                  SizedBox(height: 18),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Not a member?',
+                        'Have an account?',
                         style: TextStyle(
                             fontSize: 16,
                             color: const Color.fromARGB(255, 255, 255, 255)),
@@ -225,7 +276,7 @@ class _LoginState extends State<Login> {
                       GestureDetector(
                         onTap: widget.onTap,
                         child: const Text(
-                          'Register now',
+                          'Login now',
                           style: TextStyle(
                             fontSize: 16,
                             color: Color.fromARGB(255, 0, 11, 167),
