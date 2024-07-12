@@ -102,8 +102,6 @@ class _QuestionPageState extends State<QuestionPage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 10,
                   ),
-
-                  // Use a column to list the options
                   Expanded(
                     child: Column(
                       children: _questions[_currentQuestionIndex]
@@ -116,11 +114,9 @@ class _QuestionPageState extends State<QuestionPage> {
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   minimumSize: Size(double.infinity, 50),
-                                  backgroundColor:
-                                      Colors.white, // Set the button color
+                                  backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        12), // Optional: set the border radius
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                 ),
                                 onPressed: () => _answerQuestion(entry.key),

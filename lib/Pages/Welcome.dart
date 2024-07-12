@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mohammedtask/Pages/Login.dart';
 import 'package:mohammedtask/Pages/auth_page.dart';
 
 class WelcomePage extends StatelessWidget {

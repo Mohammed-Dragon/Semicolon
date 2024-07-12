@@ -1,4 +1,3 @@
-// lib/question.dart
 class Question {
   final String questionText;
   final List<String> options;
@@ -57,6 +56,51 @@ final List<Question> literatureQuestions = [
     ],
     correctAnswerIndex: 0,
   ),
+  Question(
+    questionText: 'Which book is known as the first science fiction novel?',
+    options: [
+      'Frankenstein',
+      'The War of the Worlds',
+      '1984',
+      'Brave New World'
+    ],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'Who wrote "The Brothers Karamazov"?',
+    options: [
+      'Fyodor Dostoevsky',
+      'Leo Tolstoy',
+      'Anton Chekhov',
+      'Nikolai Gogol'
+    ],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'Who is the author of "Brave New World"?',
+    options: ['Aldous Huxley', 'George Orwell', 'Isaac Asimov', 'Ray Bradbury'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'Which novel begins with "Call me Ishmael"?',
+    options: [
+      'Moby-Dick',
+      'The Old Man and the Sea',
+      'The Adventures of Huckleberry Finn',
+      'Treasure Island'
+    ],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'Who wrote "The Great Gatsby"?',
+    options: [
+      'F. Scott Fitzgerald',
+      'Ernest Hemingway',
+      'J.D. Salinger',
+      'Mark Twain'
+    ],
+    correctAnswerIndex: 0,
+  ),
 ];
 
 final List<Question> sportQuestions = [
@@ -96,6 +140,31 @@ final List<Question> sportQuestions = [
     ],
     correctAnswerIndex: 3,
   ),
+  Question(
+    questionText: 'Who has won the most NBA championships as a player?',
+    options: ['Michael Jordan', 'Bill Russell', 'LeBron James', 'Kobe Bryant'],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    questionText: 'Which country has won the most Olympic medals?',
+    options: ['Russia', 'China', 'USA', 'Germany'],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    questionText: 'Which soccer player is known as "The King of Football"?',
+    options: ['Diego Maradona', 'Pelé', 'Lionel Messi', 'Cristiano Ronaldo'],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    questionText: 'Which country hosted the 2016 Summer Olympics?',
+    options: ['China', 'Brazil', 'Japan', 'Australia'],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    questionText: 'Who is the fastest man in the world?',
+    options: ['Usain Bolt', 'Tyson Gay', 'Yohan Blake', 'Justin Gatlin'],
+    correctAnswerIndex: 0,
+  ),
 ];
 
 final List<Question> mathQuestions = [
@@ -124,8 +193,32 @@ final List<Question> mathQuestions = [
     options: ['9π', '6π', '3π', '12π'],
     correctAnswerIndex: 0,
   ),
+  Question(
+    questionText: 'What is the sum of the angles in a triangle?',
+    options: ['180 degrees', '360 degrees', '90 degrees', '270 degrees'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'What is the derivative of x^2?',
+    options: ['x', '2x', 'x^2', '1'],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    questionText: 'What is the integral of 1/x?',
+    options: ['ln(x)', 'e^x', 'x^2/2', '1/x'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'What is the Pythagorean theorem?',
+    options: ['a^2 + b^2 = c^2', 'a + b = c', 'a^2 - b^2 = c^2', 'a/b = c/d'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'What is the value of e?',
+    options: ['2.71', '3.14', '1.61', '1.41'],
+    correctAnswerIndex: 0,
+  ),
 ];
-
 final List<Question> scienceQuestions = [
   Question(
     questionText: 'What is the chemical symbol for water?',
@@ -152,8 +245,33 @@ final List<Question> scienceQuestions = [
     options: ['Oxygen', 'Hydrogen', 'Carbon Dioxide', 'Nitrogen'],
     correctAnswerIndex: 3,
   ),
+  Question(
+    questionText: 'What is the boiling point of water?',
+    options: ['90°C', '100°C', '110°C', '120°C'],
+    correctAnswerIndex: 1,
+  ),
+  Question(
+    questionText: 'What is the center of an atom called?',
+    options: ['Proton', 'Electron', 'Neutron', 'Nucleus'],
+    correctAnswerIndex: 3,
+  ),
+  Question(
+    questionText:
+        'What is the process of converting sunlight into energy called?',
+    options: ['Photosynthesis', 'Respiration', 'Transpiration', 'Osmosis'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'What is the hardest natural substance on Earth?',
+    options: ['Gold', 'Iron', 'Diamond', 'Quartz'],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    questionText: 'What is the chemical symbol for gold?',
+    options: ['Au', 'Ag', 'Fe', 'Pb'],
+    correctAnswerIndex: 0,
+  ),
 ];
-
 final List<Question> iqQuestions = [
   Question(
     questionText:
@@ -181,5 +299,30 @@ final List<Question> iqQuestions = [
         'If you rearrange the letters "CIFAIPC", you get the name of a:',
     options: ['City', 'Animal', 'Ocean', 'River'],
     correctAnswerIndex: 2,
+  ),
+  Question(
+    questionText: 'Which shape is made up of only four sides?',
+    options: ['Triangle', 'Pentagon', 'Square', 'Circle'],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    questionText: 'What is the capital of France?',
+    options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+    correctAnswerIndex: 2,
+  ),
+  Question(
+    questionText: 'What number is twice the sum of its digits?',
+    options: ['18', '24', '12', '22'],
+    correctAnswerIndex: 0,
+  ),
+  Question(
+    questionText: 'What number comes next in the pattern 1, 4, 9, 16, 25, ...?',
+    options: ['30', '35', '40', '36'],
+    correctAnswerIndex: 3,
+  ),
+  Question(
+    questionText: 'What letter comes next in the series: A, C, E, G, ...?',
+    options: ['I', 'H', 'J', 'K'],
+    correctAnswerIndex: 0,
   ),
 ];

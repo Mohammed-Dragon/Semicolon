@@ -1,4 +1,3 @@
-// lib/Pages/CategoryPage.dart
 import 'package:flutter/material.dart';
 import 'package:mohammedtask/Widgets/CategoryCard.dart';
 
@@ -20,13 +19,11 @@ class CategoryPage extends StatelessWidget {
                   CategoryCard(
                     name: "literature",
                     color1: Colors.white,
-                    color2: Colors.red,
                     image: 'lib/assets/CategoryImages/1.png',
                   ),
                   CategoryCard(
                     name: "Sport",
                     color1: Colors.yellow,
-                    color2: Colors.red,
                     image: 'lib/assets/CategoryImages/2.jpg',
                   ),
                 ],
@@ -36,13 +33,11 @@ class CategoryPage extends StatelessWidget {
                   CategoryCard(
                     name: "Math",
                     color1: Colors.green,
-                    color2: Colors.red,
                     image: 'lib/assets/CategoryImages/3.jpg',
                   ),
                   CategoryCard(
                     name: "Science",
                     color1: Colors.red,
-                    color2: Colors.red,
                     image: 'lib/assets/CategoryImages/4.jpg',
                   ),
                 ],
@@ -50,7 +45,6 @@ class CategoryPage extends StatelessWidget {
               CategoryCard(
                 name: "IQ",
                 color1: Colors.blue,
-                color2: Colors.red,
                 image: 'lib/assets/CategoryImages/5.png',
               ),
             ],
